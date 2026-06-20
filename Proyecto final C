@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maravillas Naturales del Caribe</title>
+    <style>
+      :root {
+        --ocean:   #0a4b6e;
+        --lagoon:  #1b8fb5;
+        --sand:    #f5efe6;
+        --coral:   #e05c3a;
+        --ink:     #1a1a2e;
+        --mist:    #dce8f0;
+        --white:   #ffffff;
+        --display: 'Georgia', 'Times New Roman', serif;
+        --body:    'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: var(--body);
+        background: var(--sand);
+        color: var(--ink);
+        line-height: 1.65;
+      }
+
+      img { display: block; max-width: 100%; height: auto; }
+      a   { color: var(--lagoon); }
+      a:hover { color: var(--coral); }
+
+      header {
+        background: var(--ocean);
+        color: var(--white);
+        text-align: center;
+        padding: 3.5rem 1.5rem 2.5rem;
+        border-bottom: 5px solid var(--coral);
+      }
+
+      header h1 {
+        font-family: var(--display);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        letter-spacing: 0.02em;
+        margin-bottom: 0.5rem;
+      }
+
+      header p.tagline {
+        font-size: 1.1rem;
+        color: var(--mist);
+        font-style: italic;
+        max-width: 55ch;
+        margin: 0 auto;
+      }
+
+      nav {
+        background: var(--lagoon);
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0.85rem 1rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+
+      nav a:hover { color: var(--coral); }
+
+      main {
+        max-width: 960px;
+        margin: 3rem auto;
+        padding: 0 1.25rem;
+        display: grid;
+        gap: 3rem;
+      }
+
+      h2 {
+        font-family: var(--display);
+        font-size: 1.8rem;
+        color: var(--ocean);
+        border-left: 5px solid var(--coral);
+        padding-left: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .card {
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+        transition: transform 0.25s, box-shadow 0.25s;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-body { padding: 1rem 1.25rem 1.25rem; }
+
+      .card-body h3 {
+        font-family: var(--display);
+        font-size: 1.15rem;
+        color: var(--ocean);
+        margin-bottom: 0.4rem;
+      }
+
+      .card-body p { font-size: 0.92rem; color: #444; }
+
+      .highlights {
+        background: var(--white);
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+      }
+
+      .highlights ul {
+        list-style: none;
+        display: grid;
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+      }
+
+      .highlights li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        font-size: 1rem;
+      }
+
+      .highlights li::before {
+        content: "🌊";
+        flex-shrink: 0;
+        font-size: 1.1rem;
+        margin-top: 0.1rem;
+      }
+
+      .cta-box {
+        background: var(--ocean);
+        color: var(--white);
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .cta-box p { margin-bottom: 1rem; font-size: 1.05rem; color: var(--mist); }
+
+      .cta-box a {
+        display: inline-block;
+        background: var(--coral);
+        color: var(--white);
+        text-decoration: none;
+        padding: 0.7rem 2rem;
+        border-radius: 6px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        transition: background 0.2s;
+      }
+
+      .cta-box a:hover { background: #c0472b; color: var(--white); }
+
+      footer {
+        background: var(--ink);
+        color: var(--mist);
+        text-align: center;
+        padding: 1.75rem 1rem;
+        font-size: 0.88rem;
+        margin-top: 4rem;
+      }
+
+      footer a { color: var(--lagoon); }
+
+      @media (max-width: 600px) {
+        nav { gap: 1rem; }
+        .gallery { grid-template-columns: 1fr; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .card { transition: none; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Maravillas Naturales del Caribe</h1>
+      <p class="tagline">Playas cristalinas, arrecifes de coral y selvas tropicales que te quitan el aliento</p>
+    </header>
+
+    <nav aria-label="Navegación principal">
+      <a href="#galeria">Galería</a>
+      <a href="#destacados">Destacados</a>
+      <a href="#recursos">Recursos</a>
+    </nav>
+
+    <main>
+
+      <section id="galeria" aria-labelledby="galeria-titulo">
+        <h2 id="galeria-titulo">Destinos Imperdibles</h2>
+        <div class="gallery">
+
+          <article class="card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Laguna_Bacalar_Mexico.jpg/800px-Laguna_Bacalar_Mexico.jpg"
+              alt="Aguas turquesas y azules de la Laguna de Bacalar en México, conocida como el lago de los siete colores"
+              width="800"
+              height="534"
+            />
+            <div class="card-body">
+              <h3>Laguna de Bacalar, México</h3>
+              <p>Un espejo de siete colores entre la selva yucateca, ideal para kayak y snorkel.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG-Scuba_diving.jpg/800px-PNG-Scuba_diving.jpg"
+              alt="Buzo explorando un colorido arrecife de coral con peces tropicales en aguas del Caribe"
+              width="800"
+              height="534"
+            />
+            <div class="card-body">
+              <h3>Arrecifes de Coral del Caribe</h3>
+              <p>El segundo arrecife de barrera más grande del mundo, hogar de cientos de especies marinas.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Punta_Cana_Beach.jpg/800px-Punta_Cana_Beach.jpg"
+              alt="Palmeras de cocotero inclinadas sobre una playa de arena blanca en Punta Cana, República Dominicana"
+              width="800"
+              height="534"
+            />
+            <div class="card-body">
+              <h3>Punta Cana, República Dominicana</h3>
+              <p>Más de 30 km de playa con palmeras, arenas blancas y aguas cálidas todo el año.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="destacados" class="highlights" aria-labelledby="destacados-titulo">
+        <h2 id="destacados-titulo">Por qué visitar el Caribe</h2>
+        <ul>
+          <li>Biodiversidad marina sin igual: más de 500 especies de peces en sus aguas.</li>
+          <li>Clima tropical estable con temperaturas entre 25 °C y 32 °C durante todo el año.</li>
+          <li>Rica herencia cultural que fusiona influencias indígenas, africanas y europeas.</li>
+          <li>Gastronomía vibrante: desde el mofongo puertorriqueño hasta el sancocho dominicano.</li>
+          <li>Parques nacionales protegidos que conservan ecosistemas únicos de manglares y selva.</li>
+        </ul>
+      </section>
+
+      <section id="recursos" class="cta-box" aria-labelledby="recursos-titulo">
+        <h2 id="recursos-titulo" style="color:#fff; border-color:#fff;">Aprende más sobre el Caribe</h2>
+        <p>
+          Consulta la Organización de Turismo del Caribe para planificar tu próxima aventura,
+          conocer requisitos de viaje y descubrir nuevos destinos.
+        </p>
+        <a href="https://www.onecaribbean.org" target="_blank" rel="noopener noreferrer">
+          Visitar OneCaribbean.org ↗
+        </a>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>
+        © 2026 Maravillas del Caribe · Imágenes vía
+        <a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+        (CC BY-SA) · Sitio de práctica HTML5
+      </p>
+    </footer>
+
+  </body>
+</html>
